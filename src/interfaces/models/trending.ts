@@ -1,6 +1,6 @@
 import { MovieItem } from "./movie";
 
-export interface Trending {
+export interface IMovieSection {
   id: string;
   title: string;
   layout: string;

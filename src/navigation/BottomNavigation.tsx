@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text } from "react-native";
 import CustomTabBar from "../components/molecules/TabBar";
 import HomeStackNavigator from "./HomeStackNavigation";
+import { MaintenanceTemplate } from "@/components/templates/Maintenance";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,26 +18,26 @@ function BottomTabNavigator() {
         headerShown: false,
       })}
     >
-      <Tab.Screen key={"Home"} name={"Home"} component={HomeStackNavigator} />
+      <Tab.Screen
+        key={"Home"}
+        name={"HomeStack"}
+        component={HomeStackNavigator}
+      />
       <Tab.Screen
         key={"Search"}
         name={"Search"}
-        component={() => <Text>Search View</Text>}
+        component={MaintenanceTemplate}
       />
-      <Tab.Screen
-        key={"TV"}
-        name={"TV"}
-        component={() => <Text>Messages</Text>}
-      />
+      <Tab.Screen key={"TV"} name={"TV"} component={MaintenanceTemplate} />
       <Tab.Screen
         key={"Notifications"}
         name={"Notifications"}
-        component={() => <Text>Notifications</Text>}
+        component={MaintenanceTemplate}
       />
       <Tab.Screen
         key={"Profile"}
         name={"Profile"}
-        component={() => <Text>Profile</Text>}
+        component={MaintenanceTemplate}
       />
     </Tab.Navigator>
   );

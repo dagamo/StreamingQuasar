@@ -12,7 +12,7 @@ function BottomTabNavigator() {
       tabBar={(props) => <CustomTabBar {...props} />}
       screenOptions={() => ({
         sceneStyle: {
-          backgroundColor: "white",
+          backgroundColor: "#000",
         },
         headerShown: false,
       })}

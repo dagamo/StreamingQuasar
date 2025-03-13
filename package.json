@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@candlefinance/faster-image": "^1.7.2",
     "@react-navigation/bottom-tabs": "^7.2.1",
     "@react-navigation/native": "^7.0.15",
     "react": "19.0.0",

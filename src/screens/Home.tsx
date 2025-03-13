@@ -1,22 +1,33 @@
 import { HomeTemplate } from "@/components/templates/HomeScreen";
 import { useMemo } from "react";
-import trending from "@/utils/data.json";
+import movies from "@/utils/data.json";
 import { getTopMovie } from "@/utils/getTopMovie";
 import { ICover } from "@/components/organisms/Cover/interface";
 
 const HomeScreen = () => {
   const topMovie: ICover = useMemo(() => {
-    const topMovie = getTopMovie(trending.containers);
+    const topMovie = getTopMovie(movies.containers);
     return {
       title: topMovie?.title || "",
       duration: topMovie?.duration || "",
       year: topMovie?.year || 0,
-      rating: `${topMovie?.rating} - ${topMovie?.classification.rating}` || "",
+      rating: `${topMovie?.rating} ${topMovie?.classification.rating}` || "",
       src: topMovie?.posters?.portrait?.url || "",
       description: topMovie?.description || "",
     };
   }, []);
-  return <HomeTemplate top={topMovie} />;
+  const sections = useMemo(
+    () =>
+      movies.containers
+        .filter((container) => container.id !== "trending")
+        .map((container) => ({
+          title: container.title,
+          data: container.items,
+          id: container.id,
+        })),
+    []
+  );
+  return <HomeTemplate top={topMovie} sections={sections} />;
 };
 
 export default HomeScreen;

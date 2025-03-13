@@ -16,7 +16,8 @@ const Content = styled.View`
 const Title = styled.Text`
   color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.primary};
   font-size: 36px;
-  font-weight: 800;
+  font-family: "PlusJakartaSans-Bold";
+  font-weight: 900;
   text-align: center;
 `;
 
@@ -30,12 +31,14 @@ const Information = styled.View`
 const TextInformation = styled.Text`
   font-size: ${({ size }: { size: number }) => size}px;
   font-weight: 700;
+  font-family: "PlusJakartaSans-Regular";
   color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.primary};
 `;
 
 const PlayText = styled.Text`
   color: #000;
   font-size: 14px;
+  font-family: "PlusJakartaSans-Regular";
   font-weight: 700;
   letter-spacing: -0.6%;
 `;
@@ -44,6 +47,7 @@ const InfoText = styled.Text`
   color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.primary};
   font-size: 14px;
   font-weight: 700;
+  font-family: "PlusJakartaSans-Regular";
   letter-spacing: -0.6%;
 `;
 
@@ -64,14 +68,7 @@ const GroupButtons = styled.View`
   justify-content: center;
 `;
 
-export const CoverHome = ({
-  src,
-  description,
-  title,
-  year,
-  rating,
-  duration,
-}: ICover) => {
+export const CoverHome = ({ src, title, year, rating, duration }: ICover) => {
   return (
     <ImageBackground
       source={{ uri: src }}

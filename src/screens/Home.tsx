@@ -2,7 +2,7 @@ import { HomeTemplate } from "@/components/templates/HomeScreen";
 import { useCallback, useMemo } from "react";
 import movies from "@/utils/data.json";
 import { getTopMovie } from "@/utils/getTopMovie";
-import { ICover } from "@/components/organisms/Cover/interface";
+import { TMovieCover } from "@/components/organisms/Cover/interface";
 import { MovieItem } from "@/interfaces/models/movie";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -12,7 +12,7 @@ const HomeScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  const topMovie: ICover = useMemo(() => {
+  const topMovie: TMovieCover = useMemo(() => {
     const topMovie = getTopMovie(movies.containers);
     return {
       title: topMovie?.title || "",
@@ -47,12 +47,17 @@ const HomeScreen = () => {
     });
   }, []);
 
+  const onPlay = useCallback(() => {
+    navigation.navigate("Player");
+  }, []);
+
   return (
     <HomeTemplate
       top={topMovie}
       sections={sections}
       onPress={onPress}
       onMoreInfo={onMoreInfo}
+      onPlay={onPlay}
     />
   );
 };

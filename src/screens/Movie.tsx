@@ -25,8 +25,16 @@ const MovieScreen = ({
     navigation.goBack();
   }, []);
 
+  const onPlay = useCallback(() => {
+    navigation.navigate("Player");
+  }, []);
+
   return (
-    <MovieTemplate info={getMovieInfo || ({} as MovieItem)} onBack={onBack} />
+    <MovieTemplate
+      info={getMovieInfo || ({} as MovieItem)}
+      onBack={onBack}
+      onPlay={onPlay}
+    />
   );
 };
 

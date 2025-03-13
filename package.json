@@ -19,6 +19,8 @@
     "react-native-linear-gradient": "^2.8.3",
     "react-native-safe-area-context": "^5.3.0",
     "react-native-screens": "^4.9.2",
+    "react-native-video": "^6.10.2",
+    "react-native-video-player": "^0.16.2",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {

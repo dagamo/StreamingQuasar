@@ -1,4 +1,4 @@
-import { Image, ImageBackground, Text } from "react-native";
+import { Image, ImageBackground } from "react-native";
 import { ICover, TCoverButton } from "./interface";
 import LinearGradient from "react-native-linear-gradient";
 import { CoverHeader } from "@/components/molecules/CoverHeader";
@@ -9,6 +9,7 @@ import { LargeButton } from "@/components/atoms/Buttons/LargeButton";
 import InfoIcon from "@assets/icons/info.png";
 import PlayBlackIcon from "@assets/icons/playBlack.png";
 import { useCallback } from "react";
+import { TextInformation } from "@/components/atoms/Text/TextInformation";
 
 const Content = styled.View`
   gap: 15px;
@@ -27,13 +28,6 @@ const Information = styled.View`
   gap: 10px;
   justify-content: center;
   align-items: center;
-`;
-
-const TextInformation = styled.Text`
-  font-size: ${({ size }: { size: number }) => size}px;
-  font-weight: 700;
-  font-family: "PlusJakartaSans-Regular";
-  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.primary};
 `;
 
 const PlayText = styled.Text`

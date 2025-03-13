@@ -1,5 +1,5 @@
 import { Image, ImageBackground, Text } from "react-native";
-import { ICover } from "./interface";
+import { ICover, TCoverButton } from "./interface";
 import LinearGradient from "react-native-linear-gradient";
 import { CoverHeader } from "@/components/molecules/CoverHeader";
 import styled from "styled-components/native";
@@ -8,10 +8,11 @@ import TVWhiteIcon from "@assets/icons/TVWhite.png";
 import { LargeButton } from "@/components/atoms/Buttons/LargeButton";
 import InfoIcon from "@assets/icons/info.png";
 import PlayBlackIcon from "@assets/icons/playBlack.png";
+import { useCallback } from "react";
 
 const Content = styled.View`
   gap: 15px;
-  height: 200px;
+  min-height: 200px;
 `;
 const Title = styled.Text`
   color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.primary};
@@ -68,11 +69,25 @@ const GroupButtons = styled.View`
   justify-content: center;
 `;
 
-export const CoverHome = ({ src, title, year, rating, duration }: ICover) => {
+export const MovieCover = ({
+  src,
+  title,
+  year,
+  rating,
+  isTopMovie,
+  duration,
+  Header,
+  onMoreInfo = () => {},
+  hideButtons = [],
+}: ICover) => {
+  const isHidden = useCallback(
+    (button: TCoverButton) => hideButtons.includes(button),
+    []
+  );
   return (
     <ImageBackground
       source={{ uri: src }}
-      style={{ height: 500 }}
+      style={{ minHeight: 500 }}
       blurRadius={5}
     >
       <LinearGradient
@@ -80,7 +95,7 @@ export const CoverHome = ({ src, title, year, rating, duration }: ICover) => {
         locations={[0, 0.5, 0.7]}
         style={{ flex: 1, width: "100%", justifyContent: "space-between" }}
       >
-        <CoverHeader />
+        {Header ? Header : <CoverHeader></CoverHeader>}
         <Content>
           <Title>{title}</Title>
           <Information>
@@ -90,19 +105,23 @@ export const CoverHome = ({ src, title, year, rating, duration }: ICover) => {
               <TextInformation>{rating}</TextInformation>
             </Rating>
           </Information>
-          <Information>
-            <Image source={TVWhiteIcon}></Image>
-            <TextInformation size={18}>#1 in Movies Today</TextInformation>
-          </Information>
+          {isTopMovie && (
+            <Information>
+              <Image source={TVWhiteIcon}></Image>
+              <TextInformation size={18}>#1 in Movies Today</TextInformation>
+            </Information>
+          )}
           <GroupButtons>
             <LargeButton color="primary" width={165}>
               <Image source={PlayBlackIcon}></Image>
               <PlayText>Play</PlayText>
             </LargeButton>
-            <LargeButton color="secondary" width={165}>
-              <Image source={InfoIcon}></Image>
-              <InfoText>More Info</InfoText>
-            </LargeButton>
+            {!isHidden("info") && (
+              <LargeButton color="secondary" width={165} onPress={onMoreInfo}>
+                <Image source={InfoIcon}></Image>
+                <InfoText>More Info</InfoText>
+              </LargeButton>
+            )}
           </GroupButtons>
         </Content>
       </LinearGradient>

@@ -6,20 +6,24 @@ import { useCallback } from "react";
 import { ImageObject } from "@/components/atoms/Image/interface";
 import styled from "styled-components/native";
 
-const ImageContainer = styled.View`
+const ImageContainer = styled.TouchableOpacity`
   margin-right: 8px;
 `;
-export const MovieSection = ({ data, posterType }: IMovieSectionProps) => {
+export const MovieSection = ({
+  data,
+  posterType,
+  onPress,
+}: IMovieSectionProps) => {
   const renderImage = useCallback(({ item }: { item: MovieItem }) => {
     if (posterType === "portrait") {
       return (
-        <ImageContainer>
+        <ImageContainer onPress={() => onPress(item)}>
           <Image image={item.posters.portrait as ImageObject} width={112} />
         </ImageContainer>
       );
     }
     return (
-      <ImageContainer>
+      <ImageContainer onPress={() => onPress(item)}>
         <Image image={item.posters.landscape as ImageObject} width={213} />
       </ImageContainer>
     );

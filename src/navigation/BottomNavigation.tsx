@@ -1,8 +1,8 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../screens/Home";
 import { Text } from "react-native";
 import CustomTabBar from "../components/molecules/TabBar";
+import HomeStackNavigator from "./HomeStackNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +17,7 @@ function BottomTabNavigator() {
         headerShown: false,
       })}
     >
-      <Tab.Screen key={"Home"} name={"Home"} component={Home} />
+      <Tab.Screen key={"Home"} name={"Home"} component={HomeStackNavigator} />
       <Tab.Screen
         key={"Search"}
         name={"Search"}

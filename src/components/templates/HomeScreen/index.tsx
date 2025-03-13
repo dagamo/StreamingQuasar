@@ -1,10 +1,12 @@
-import { CoverHome } from "@/components/organisms/Cover";
+import { MovieCover } from "@/components/organisms/Cover";
 import { IHomeTemplateProps } from "./interface";
-import { ScrollView, View } from "react-native";
 import styled from "styled-components/native";
 import { MovieSection } from "@/components/organisms/MovieSection";
 import { isEven } from "@/utils/isEven";
 
+const ScrollviewStyled = styled.ScrollView`
+  padding-bottom: 20px;
+`;
 const SectionTitle = styled.Text`
   padding-top: 30px;
   font-size: 18px;
@@ -19,19 +21,25 @@ const Container = styled.View`
   gap: 15px;
 `;
 
-export const HomeTemplate = ({ top, sections }: IHomeTemplateProps) => {
+export const HomeTemplate = ({
+  top,
+  sections,
+  onPress,
+  onMoreInfo,
+}: IHomeTemplateProps) => {
   return (
-    <ScrollView>
-      <CoverHome {...top} />
+    <ScrollviewStyled>
+      <MovieCover {...top} onMoreInfo={onMoreInfo} />
       {sections.map((section, index) => (
         <Container key={section.id}>
           <SectionTitle>{section.title}</SectionTitle>
           <MovieSection
             data={section.data || []}
             posterType={isEven(index) ? "portrait" : "landscape"}
+            onPress={(item) => onPress(item, section.id)}
           />
         </Container>
       ))}
-    </ScrollView>
+    </ScrollviewStyled>
   );
 };

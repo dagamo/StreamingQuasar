@@ -6,7 +6,12 @@ import UserIcon from "@assets/icons/user.png";
 import TV2 from "@assets/icons/tv2.png";
 import PlayIcon from "@assets/icons/stream.png";
 import { SquaredButton } from "@/components/atoms/Buttons/SquaredButton";
+import { ICoverHeader } from "./interface";
+import BackIcon from "@assets/icons/back.png";
 
+const ButtonRoundedWhite = styled(ButtonRounded)`
+  background-color: #e6e7e8;
+`;
 const ButtonTransparent = styled(ButtonRounded)`
   background-color: rgba(140, 140, 140, 0.2);
   border-width: 1px;
@@ -29,13 +34,19 @@ const RightIcons = styled.View`
   gap: 15px;
 `;
 
-export const CoverHeader = () => {
+export const CoverHeader = ({ onBack }: ICoverHeader) => {
   return (
     <SafeAreaView>
       <ContainerHeader>
-        <PlayButton>
-          <Image source={PlayIcon} />
-        </PlayButton>
+        {onBack ? (
+          <ButtonRoundedWhite onPress={onBack}>
+            <Image source={BackIcon} style={{ width: 20, height: 20 }} />
+          </ButtonRoundedWhite>
+        ) : (
+          <PlayButton>
+            <Image source={PlayIcon} />
+          </PlayButton>
+        )}
         <RightIcons>
           <ButtonTransparent>
             <Image source={TV2} />

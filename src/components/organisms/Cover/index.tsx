@@ -78,6 +78,7 @@ export const MovieCover = ({
   duration,
   Header,
   onMoreInfo = () => {},
+  onPlay,
   hideButtons = [],
 }: ICover) => {
   const isHidden = useCallback(
@@ -112,7 +113,7 @@ export const MovieCover = ({
             </Information>
           )}
           <GroupButtons>
-            <LargeButton color="primary" width={165}>
+            <LargeButton color="primary" width={165} onPress={onPlay}>
               <Image source={PlayBlackIcon}></Image>
               <PlayText>Play</PlayText>
             </LargeButton>

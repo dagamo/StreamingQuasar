@@ -1,10 +1,8 @@
-import { ICover } from "@/components/organisms/Cover/interface";
-import { IMovieSectionProps } from "@/components/organisms/MovieSection/interface";
+import { ICover, TMovieCover } from "@/components/organisms/Cover/interface";
 import { MovieItem } from "@/interfaces/models/movie";
-import { IMovieSection } from "@/interfaces/models/trending";
 
-export interface IHomeTemplateProps {
-  top: ICover;
+export interface IHomeTemplateProps extends Pick<ICover, "onPlay"> {
+  top: TMovieCover;
   sections: {
     title: string;
     data: MovieItem[];

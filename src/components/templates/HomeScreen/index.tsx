@@ -26,10 +26,11 @@ export const HomeTemplate = ({
   sections,
   onPress,
   onMoreInfo,
+  onPlay,
 }: IHomeTemplateProps) => {
   return (
     <ScrollviewStyled>
-      <MovieCover {...top} onMoreInfo={onMoreInfo} />
+      <MovieCover {...top} onMoreInfo={onMoreInfo} onPlay={onPlay} />
       {sections.map((section, index) => (
         <Container key={section.id}>
           <SectionTitle>{section.title}</SectionTitle>

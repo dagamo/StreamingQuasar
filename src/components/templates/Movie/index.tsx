@@ -4,7 +4,11 @@ import { IMovieTemplateProps } from "./interface";
 import { CoverHeader } from "@/components/molecules/CoverHeader";
 import { MovieInformation } from "@/components/organisms/MovieInformation";
 
-export const MovieTemplate = ({ info, onBack }: IMovieTemplateProps) => {
+export const MovieTemplate = ({
+  info,
+  onBack,
+  onPlay,
+}: IMovieTemplateProps) => {
   return (
     <ScrollView>
       <MovieCover
@@ -16,6 +20,7 @@ export const MovieTemplate = ({ info, onBack }: IMovieTemplateProps) => {
         isTopMovie={info.isTopMovie}
         Header={<CoverHeader onBack={onBack} />}
         hideButtons={["info"]}
+        onPlay={onPlay}
       />
       <MovieInformation description={info.description} />
     </ScrollView>

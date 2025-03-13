@@ -11,7 +11,7 @@ const SectionTitle = styled.Text`
   padding-top: 30px;
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: -0.8%;
+  letter-spacing: -0.8px;
   line-height: 24px;
   font-family: "PlusJakartaSans-Bold";
   color: ${({ theme }: { theme: any }) => theme.colors.primary};
@@ -19,6 +19,8 @@ const SectionTitle = styled.Text`
 
 const Container = styled.View`
   gap: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 `;
 
 export const HomeTemplate = ({

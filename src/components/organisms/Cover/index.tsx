@@ -35,7 +35,7 @@ const PlayText = styled.Text`
   font-size: 14px;
   font-family: "PlusJakartaSans-Regular";
   font-weight: 700;
-  letter-spacing: -0.6%;
+  letter-spacing: -0.6px;
 `;
 
 const InfoText = styled.Text`
@@ -43,7 +43,7 @@ const InfoText = styled.Text`
   font-size: 14px;
   font-weight: 700;
   font-family: "PlusJakartaSans-Regular";
-  letter-spacing: -0.6%;
+  letter-spacing: -0.6px;
 `;
 
 const Rating = styled.View`
@@ -94,25 +94,25 @@ export const MovieCover = ({
         <Content>
           <Title>{title}</Title>
           <Information>
-            <TextInformation size={14}>{year}</TextInformation>
-            <TextInformation size={14}>{duration}</TextInformation>
+            <TextInformation size={"14"}>{year}</TextInformation>
+            <TextInformation size={"14"}>{duration}</TextInformation>
             <Rating>
-              <TextInformation>{rating}</TextInformation>
+              <TextInformation size={"14"}>{rating}</TextInformation>
             </Rating>
           </Information>
           {isTopMovie && (
             <Information>
               <Image source={TVWhiteIcon}></Image>
-              <TextInformation size={18}>#1 in Movies Today</TextInformation>
+              <TextInformation size={"18"}>#1 in Movies Today</TextInformation>
             </Information>
           )}
           <GroupButtons>
-            <LargeButton color="primary" width={165} onPress={onPlay}>
+            <LargeButton color="primary" width={"165"} onPress={onPlay}>
               <Image source={PlayBlackIcon}></Image>
               <PlayText>Play</PlayText>
             </LargeButton>
             {!isHidden("info") && (
-              <LargeButton color="secondary" width={165} onPress={onMoreInfo}>
+              <LargeButton color="secondary" width={"165"} onPress={onMoreInfo}>
                 <Image source={InfoIcon}></Image>
                 <InfoText>More Info</InfoText>
               </LargeButton>

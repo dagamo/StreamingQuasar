@@ -1,5 +1,29 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+# IOS APP
+
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+  <img src="src/assets/images/ios1.png" height="400">
+  <img src="src/assets/images/ios2.png" height="400">
+  <img src="src/assets/images/ios3.png" height="400">
+</div>
+
+# Android APP
+
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+  <img src="src/assets/images/android1.png" height="400">
+  <img src="src/assets/images/android2.png" height="400">
+  <img src="src/assets/images/android3.png" height="400">
+</div>
+
+## Before to Start
+
+Before to run the project, review your enviroment whit this.
+
+1. You need are using Node Version >=20.15.1
+2. Android Studio installed with AVD
+3. Xcode installed version >= 16.1
+
 # Getting Started
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
@@ -45,7 +69,7 @@ bundle install
 Then, and every time you update your native dependencies, run:
 
 ```sh
-bundle exec pod install
+cd ios && pod install
 ```
 
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
@@ -95,5 +119,7 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
 # StreamingTest
+
 # StreamingQuasar

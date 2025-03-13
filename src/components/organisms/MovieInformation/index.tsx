@@ -12,7 +12,7 @@ const SectionTitle = styled.Text`
   font-size: 18px;
   margin-bottom: 15px;
   font-weight: 600;
-  letter-spacing: -0.8%;
+  letter-spacing: -0.8px;
   line-height: 24px;
   font-family: "PlusJakartaSans-Bold";
   color: ${({ theme }: { theme: any }) => theme.colors.primary};
@@ -30,7 +30,7 @@ export const MovieInformation = ({ description }: { description: string }) => {
   return (
     <DescriptionContainer>
       <SectionTitle>Description</SectionTitle>
-      <TextInformation size={14}>{description}</TextInformation>
+      <TextInformation size={"14"}>{description}</TextInformation>
     </DescriptionContainer>
   );
 };

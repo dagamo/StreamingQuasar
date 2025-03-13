@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 
 import { OptimizedImageProps } from "./interface";
 import { FasterImageView } from "@candlefinance/faster-image";
@@ -36,15 +36,5 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
     />
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    position: "relative",
-    overflow: "hidden",
-  },
-  loader: {
-    transform: [{ translateX: -15 }, { translateY: -15 }],
-  },
-});
 
 export default OptimizedImage;

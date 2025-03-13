@@ -13,7 +13,7 @@ export const LargeButton = styled.TouchableOpacity`
   padding-bottom: 10px;
   height: 40px;
   border-radius: 20px;
-  width: ${({ width }: { width: number }) => width}px;
+  width: ${({ width }: { width: string }) => width}px;
   background-color: ${({
     color,
     theme,

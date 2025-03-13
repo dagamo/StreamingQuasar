@@ -18,7 +18,7 @@ export const MaintenanceTemplate = () => {
   return (
     <Container>
       <Image source={WorkingIcon} />
-      <TextInformation size={20}>Page in maintenance</TextInformation>
+      <TextInformation size={"20"}>Page in maintenance</TextInformation>
     </Container>
   );
 };
